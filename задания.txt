@@ -1,0 +1,136 @@
+№1
+class Cat:
+    def __init__(self, name, color, age):
+        self.name = name
+        self.color = color
+        self.age = age
+        
+    def meow(self):
+        print(self.name, "says: Meow!")
+        
+    def purr(self):
+        print(self.name, "is purring.")
+        
+    def sleep(self):
+        print(self.name, "is hisses.")
+
+my_cat = Cat('Barsik', 'gray', 3)
+my_cat.meow()
+my_cat.purr()
+my_cat.sleep()
+
+print("My cat's name is", my_cat.name)
+print("My cat's color is", my_cat.color)
+print("My cat's age is", my_cat.age)
+№2
+class Good:
+    def __init__(self, name, price, weight):
+        self.name = name
+        self.price = price
+        self.weight = weight
+        self.cost = 0 
+        
+    def calc(self):
+        self.cost = self.price * self.weight
+        return self.cost
+
+apple = Good('apple', 100, 1.5)
+pear = Good('pear', 120, 0.8)
+
+print("The cost of", apple.name, "is", apple.calc())
+print("The cost of", pear.name, "is", pear.calc())
+№3
+class Car:
+    def __init__(self, color, brand, body_type, speed, transmission):
+        self.color = color
+        self.brand = brand
+        self.body_type = body_type
+        self.speed = speed
+        self.transmission = transmission
+        
+    def start(self):
+        print("The car started moving.")
+        
+    def stop(self):
+        print("The car stopped.")
+        
+    def turn(self, direction):
+        print("The car turned", direction)
+        
+    def speed_up(self, amount):
+        self.speed += amount
+        if self.speed > 80 and self.body_type == 'sedan':
+            print("Speed limit exceeded! Maximum speed allowed is 80 km/h.")
+            self.speed = 80
+        elif self.speed > 60 and self.body_type == 'truck':
+            print("Speed limit exceeded! Maximum speed allowed is 60 km/h.")
+            self.speed = 60
+        else:
+            print("The car's speed increased to", self.speed)
+        
+    def speed_down(self, amount):
+        self.speed -= amount
+        if self.speed < 0:
+            self.speed = 0
+        print("The car's speed decreased to", self.speed)
+        
+    def beep(self):
+        print("Beep beep!")
+        
+
+class Truck(Car):
+    def __init__(self, color, brand, body_type, speed, transmission, cargo_capacity):
+        super().__init__(color, brand, body_type, speed, transmission)
+        self.cargo_capacity = cargo_capacity
+        
+    def load_cargo(self, weight):
+        print("Loading", weight, "tons of cargo.")
+        
+    def unload_cargo(self, weight):
+        print("Unloading", weight, "tons of cargo.")
+        
+
+car1 = Car('red', 'Toyota', 'sedan', 60, 'automatic')
+car1.start()
+car1.turn('left')
+car1.speed_up(20)
+car1.beep()
+car1.stop()
+
+truck1 = Truck('blue', 'Ford', 'truck', 40, 'manual', 5)
+truck1.start()
+truck1.load_cargo(3)
+truck1.turn('right')
+truck1.speed_down(10)
+truck1.unload_cargo(2)
+truck1.stop()
+
+car2 = Car('black', 'BMW', 'sedan', 80, 'automatic')
+car2.start()
+car2.turn('right')
+car2.speed_up(30)
+car2.beep()
+car2.stop()
+
+truck2 = Truck('white', 'Chevrolet', 'truck', 50, 'manual', 7)
+truck2.start()
+truck2.load_cargo(4)
+truck2.turn('left')
+truck2.speed_down(15)
+truck2.unload_cargo(3)
+truck2.stop()
+№4
+
+№5
+from time import sleep
+
+sleep(1)
+print('red')
+from time import sleep
+
+sleep(2)
+print('green')
+from time import sleep
+
+sleep(0.5)
+print('yellow')
