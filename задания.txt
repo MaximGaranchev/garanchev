@@ -1,0 +1,140 @@
+1
+class Animal:
+    def __init__(self, color, name, age):
+        self.color = color
+        self.name = name
+        self.age = age
+    
+    def say(self):
+        raise NotImplementedError("Method 'say' must be implemented in subclasses")
+
+class Cat(Animal):
+    def say(self):
+        return "Meow!"
+    
+class Dog(Animal):
+    def say(self):
+        return "Woof!"
+2
+class Father:
+    def __init__(self, name, surname):
+        self.name = name
+        self.surname = surname
+
+class Child(Father):
+    def __init__(self, name, surname, patronim):
+        super().__init__(name, surname)
+        self.patronim = patronim
+
+child = Child("Maxim", "Garanchev", "Andreevich")
+print(child.name)
+print(child.surname)
+3
+from abc import ABC, abstractmethod
+
+class Stationery(ABC):
+    title = ""
+
+    @abstractmethod
+    def draw(self):
+        pass
+
+class Pen(Stationery):
+    color = "blue"
+
+    def draw(self):
+        print("Ручка пишет")
+
+class Pencil(Stationery):
+    def draw(self):
+        print("Карандаш рисует")
+
+class Handle(Stationery):
+    def draw(self):
+        print("Маркер рисует")
+
+pen = Pen()
+pencil = Pencil()
+handle = Handle()
+
+pen.draw()
+pencil.draw()
+handle.draw()
+
+
+
+class Stationery(ABC):
+    title = ""
+    color = ""
+
+    @classmethod
+    def set_color(cls, color):
+        cls.color = color
+
+class Pen(Stationery):
+    color = "blue"
+
+    def draw(self):
+        print("Ручка пишет")
+
+class Pencil(Stationery):
+    def draw(self):
+        print("Карандаш рисует")
+
+class Handle(Stationery):
+    def draw(self):
+        print("Маркер рисует")
+
+Stationery.set_color("yellow")
+
+print(Pen.color)
+print(Pencil.color)
+print(Handle.color)
+4
+class User:
+    def __init__(self, login, password):
+        self.login = login
+        self.password = password
+
+    def view(self):
+        print("Я - User. Могу просматривать содержимое")
+
+class Moderator(User):
+    def __init__(self, login, password, group_id):
+        super().__init__(login, password)
+        self.group_id = group_id
+
+    def view(self):
+        print("Я - Moderator. Могу просматривать содержимое")
+
+    def redact(self):
+        print("Я - Moderator. Могу редактировать содержимое")
+
+user = User("user_login", "user_password")
+moderator = Moderator("moderator_login", "moderator_password", 123)
+
+user.view()
+moderator.view()
+moderator.redact()
+5
+from time import time, localtime
+
+# time выводит количество секунд, прошедших с 1 января 1970, 00:00:00
+
+print(time()) # 1668680736.59019
+
+# localtime преобразует секунды в кортеж struct_time
+
+print(localtime(time())) # time.struct_time(tm_year=2022, tm_mon=11, tm_mday=17, tm_hour=10, tm_min=26, tm_sec=8, tm_wday=3, tm_yday=321, tm_isdst=0)
+
+# Чтобы привести его в красивый вид, можно воспользоваться f-строкой
+
+rez = localtime(time())
+print(f'{rez.tm_hour}:{rez.tm_min}:{rez.tm_sec}') # 10:29:45
+class Clock:
+    @staticmethod
+    def Say_time():
+        now = datetime.datetime.now()
+        print("Текущее время:", now.strftime("%H:%M:%S"))
+
+Clock.Say_time() 
