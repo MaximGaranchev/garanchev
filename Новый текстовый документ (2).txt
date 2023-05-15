@@ -1,0 +1,60 @@
+1
+class Person:
+    def __init__(self, name, age, surname):
+        self.__name = name
+        self.__age = age
+        self.__surname = surname
+    
+    def get_name(self):
+        return self.__name
+    
+    def get_age(self):
+        return self.__age
+    
+    def get_surname(self):
+        return self.__surname
+    
+    def set_age(self, age):
+        self.__age = age
+
+person1 = Person("Max", 25, "Gar")
+print(person1.get_name())
+print(person1.get_age())
+print(person1.get_surname()) 
+
+person1.set_age(30)
+print(person1.get_age())
+2
+3
+class Box:
+    def __init__(self, postcode, name, from_city, target_city):
+        self.__postcode = postcode
+        self.__name = name
+        self.__from_city = from_city
+        self.__target_city = target_city
+    
+    def get_postcode(self):
+        return self.__postcode
+    
+    def get_name(self):
+        return self.__name
+    
+    def get_from_city(self):
+        return self.__from_city
+    
+    def get_target_city(self):
+        return self.__target_city
+    
+    def set_target_city(self, new_target_city):
+        self.__target_city = new_target_city
+        
+box1 = Box(123456, "John Smith", "New York", "Los Angeles")
+
+print(box1.get_postcode())
+print(box1.get_name())
+print(box1.get_from_city()) 
+print(box1.get_target_city())
+
+box1.set_target_city("San Francisco")
+print(box1.get_target_city())
+4
