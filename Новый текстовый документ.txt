@@ -1,0 +1,70 @@
+1
+class Battery:
+    def __init__(self, max_charge=5):
+        self.capacity = []
+        self.max_charge = max_charge
+    
+    def charge(self):
+        if len(self.capacity) < self.max_charge:
+            self.capacity.append(')')
+    
+    def discharge(self):
+        if len(self.capacity) > 0:
+            self.capacity.pop()
+    
+    def __str__(self):
+        return '[' + ''.join(self.capacity) + ')' * (self.max_charge - len(self.capacity)) + ']'
+    
+battery = Battery()
+print(battery)
+battery.charge()
+battery.charge()
+print(battery)
+battery.discharge()
+print(battery)
+2
+class Queue:
+    def __init__(self):
+        self.inside = []
+    
+    def add(self, name):
+        self.inside.append(name)
+    
+    def take_out(self):
+        if len(self.inside) > 0:
+            self.inside.pop(0)
+    
+    def __str__(self):
+        return "=>".join(self.inside)
+    
+    def __add__(self, name):
+        self.add(name)
+        return self
+    
+    def __sub__(self, name):
+        self.take_out()
+        return self
+    
+    def __iadd__(self, name):
+        self.add(name)
+        return self
+    
+    def __isub__(self, name):
+        self.take_out()
+        return self
+    
+
+queue = Queue()
+print(queue) # 
+queue.add('Alice')
+queue.add('Bob')
+queue.add('Charlie')
+print(queue)
+queue.take_out()
+print(queue)
+queue += 'Dave'
+print(queue)
+queue -= 'Bob'
+print(queue)
+3
+4
